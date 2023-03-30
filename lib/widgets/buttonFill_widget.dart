@@ -1,5 +1,5 @@
-import 'package:diljobsapp/themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:diljobsapp/themes/colors.dart';
 
 import '../themes/fontStyle.dart';
 
@@ -10,7 +10,7 @@ class ButtonFill extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 45.0,
-      width: 200.0,
+      width: 300.0,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(

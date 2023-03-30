@@ -1,7 +1,8 @@
+import 'package:diljobsapp/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../themes/fontStyle.dart';
-import '../widgets/buttonFill_widget.dart';
+import '../widgets/ButtonFill_widget.dart';
 
 class Starter extends StatelessWidget {
   const Starter({super.key});
@@ -19,7 +20,7 @@ class Starter extends StatelessWidget {
                     fit: BoxFit.fill)),
             child: Container(
               margin:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50.0),
+                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 60.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -34,7 +35,33 @@ class Starter extends StatelessWidget {
                     "18,000 jobs available",
                     style: white300.copyWith(fontSize: 14.0),
                   ),
-                  const ButtonFill()
+                  const SizedBox(
+                    height: 500.0,
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        const ButtonFill(),
+                        const SizedBox(
+                          height: 24.0,
+                        ),
+                        SizedBox(
+                          height: 45.0,
+                          width: 300.0,
+                          child: OutlinedButton(
+                              onPressed: () {},
+                              style: OutlinedButton.styleFrom(
+                                  foregroundColor: ColordilJobsApp.white,
+                                  side: const BorderSide(
+                                      color: ColordilJobsApp.white),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(66.0))),
+                              child: const Text("Testing")),
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             )),
