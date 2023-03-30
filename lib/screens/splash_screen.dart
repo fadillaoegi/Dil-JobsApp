@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:diljobsapp/screens/signin_secreen.dart';
+import 'package:diljobsapp/screens/starter_screen.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class _SplashState extends State<Splash> {
     return Timer(durasiSplash, () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return const SignIn();
+        return const Starter();
       }));
     });
   }
@@ -49,10 +49,10 @@ class _SplashState extends State<Splash> {
                 height: 76.0,
               ),
               const SizedBox(
-                height: 20.0,
+                height: 70.0,
               ),
               const Text(
-                "DILJOBSAPP",
+                "DilJobApp",
                 style: TextStyle(fontSize: 32.0, color: Colors.white),
               )
             ],
