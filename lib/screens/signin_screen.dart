@@ -1,5 +1,6 @@
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
+import 'package:diljobsapp/widgets/avatar_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,21 +27,33 @@ class _SignInState extends State<SignIn> {
             const SizedBox(
               height: 50.0,
             ),
-            Center(
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    border:
-                        Border.all(color: ColordilJobsApp.primary, width: 1.0),
-                    borderRadius: BorderRadius.circular(100.0)),
-                child: const SizedBox(
-                  height: 120,
-                  width: 120,
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/pict.png'),
-                  ),
+            const Center(child: Avatar()),
+            const SizedBox(
+              height: 50.0,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Email",
+                  style: grey300.copyWith(fontSize: 16.0),
                 ),
-              ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: const Color(0xffF1F0F5),
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(100.0),
+                        borderSide: BorderSide.none),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(100),
+                        borderSide: BorderSide.none),
+                  ),
+                )
+              ],
             )
           ],
         ),
