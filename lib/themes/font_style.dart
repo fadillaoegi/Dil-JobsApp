@@ -10,6 +10,14 @@ TextStyle white300 = GoogleFonts.poppins(
 TextStyle white400 = GoogleFonts.poppins(
     color: ColordilJobsApp.white, fontWeight: FontWeight.w400);
 
+// WHITE COLOR
+TextStyle black500 = GoogleFonts.poppins(
+    color: ColordilJobsApp.fontPrimary, fontWeight: FontWeight.w500);
+TextStyle black300 = GoogleFonts.poppins(
+    color: ColordilJobsApp.fontPrimary, fontWeight: FontWeight.w300);
+TextStyle black400 = GoogleFonts.poppins(
+    color: ColordilJobsApp.fontPrimary, fontWeight: FontWeight.w400);
+
 // PRIMARY COLOR
 TextStyle primary500 = GoogleFonts.poppins(
     color: ColordilJobsApp.primary, fontWeight: FontWeight.w500);

@@ -1,9 +1,8 @@
-import 'package:diljobsapp/themes/colors.dart';
-import 'package:diljobsapp/widgets/buttomOut_widget.dart';
+import 'package:diljobsapp/routes/routes_diljobapp.dart';
+import 'package:diljobsapp/widgets/Button_fill_widget.dart';
+import 'package:diljobsapp/widgets/button_out_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../themes/fontStyle.dart';
-import '../widgets/ButtonFill_widget.dart';
+import '../themes/font_style.dart';
 
 class Starter extends StatelessWidget {
   const Starter({super.key});
@@ -37,17 +36,23 @@ class Starter extends StatelessWidget {
                     style: white300.copyWith(fontSize: 14.0),
                   ),
                   const SizedBox(
-                    height: 450.0,
+                    height: 400.0,
                   ),
                   Center(
                     child: Column(
                       children: [
-                        const ButtonFill(),
+                        ButtonFill(
+                          onpress: () {},
+                          text: "Get Started",
+                        ),
                         const SizedBox(
                           height: 24.0,
                         ),
                         ButtonOutline(
-                          onPress: () {},
+                          onPress: () {
+                            Navigator.pushReplacementNamed(
+                                context, RouteDiljobsapp.signin);
+                          },
                           text: "Sign In",
                         )
                       ],

@@ -1,5 +1,5 @@
 import 'package:diljobsapp/themes/colors.dart';
-import 'package:diljobsapp/themes/fontStyle.dart';
+import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
