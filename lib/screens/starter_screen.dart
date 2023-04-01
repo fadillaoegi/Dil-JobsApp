@@ -1,4 +1,5 @@
 import 'package:diljobsapp/themes/colors.dart';
+import 'package:diljobsapp/widgets/buttomOut_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../themes/fontStyle.dart';
@@ -36,7 +37,7 @@ class Starter extends StatelessWidget {
                     style: white300.copyWith(fontSize: 14.0),
                   ),
                   const SizedBox(
-                    height: 500.0,
+                    height: 450.0,
                   ),
                   Center(
                     child: Column(
@@ -45,19 +46,9 @@ class Starter extends StatelessWidget {
                         const SizedBox(
                           height: 24.0,
                         ),
-                        SizedBox(
-                          height: 45.0,
-                          width: 300.0,
-                          child: OutlinedButton(
-                              onPressed: () {},
-                              style: OutlinedButton.styleFrom(
-                                  foregroundColor: ColordilJobsApp.white,
-                                  side: const BorderSide(
-                                      color: ColordilJobsApp.white),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(66.0))),
-                              child: const Text("Testing")),
+                        ButtonOutline(
+                          onPress: () {},
+                          text: "Sign In",
                         )
                       ],
                     ),

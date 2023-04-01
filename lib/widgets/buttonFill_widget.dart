@@ -4,13 +4,16 @@ import 'package:diljobsapp/themes/colors.dart';
 import '../themes/fontStyle.dart';
 
 class ButtonFill extends StatelessWidget {
-  const ButtonFill({super.key});
+  double? height;
+  double? width;
+  String? text;
+  ButtonFill({super.key, this.width = 300.0, this.height = 45.0});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 45.0,
-      width: 300.0,
+      height: height,
+      width: width,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
@@ -18,8 +21,8 @@ class ButtonFill extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(66.0))),
         child: Text(
-          "Get Started",
-          style: primary500.copyWith(fontSize: 16.0),
+          text!,
+          style: primary400.copyWith(fontSize: 16.0),
         ),
       ),
     );
