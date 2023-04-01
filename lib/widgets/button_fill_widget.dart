@@ -8,13 +8,17 @@ class ButtonFill extends StatelessWidget {
   double? height;
   double? width;
   String? text;
+  Color? color;
+  Color? fontColor;
   VoidCallback? onpress;
   ButtonFill(
       {super.key,
       this.width = 300.0,
       this.height = 45.0,
       this.text,
-      this.onpress});
+      this.onpress,
+      this.color = ColordilJobsApp.white,
+      this.fontColor = ColordilJobsApp.primary});
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +28,12 @@ class ButtonFill extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onpress,
         style: ElevatedButton.styleFrom(
-            backgroundColor: ColordilJobsApp.white,
+            backgroundColor: color,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(66.0))),
         child: Text(
           text!,
-          style: primary400.copyWith(fontSize: 16.0),
+          style: primary400.copyWith(fontSize: 16.0, color: fontColor),
         ),
       ),
     );
