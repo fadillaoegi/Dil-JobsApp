@@ -1,4 +1,5 @@
 import 'package:diljobsapp/screens/home_screen.dart';
+import 'package:diljobsapp/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatefulWidget {
@@ -19,11 +20,37 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-   
-   List<Widget> screens = [
+    final List<Widget> screens = [
+      const Home(),
+      const Home(),
+      const Home(),
       const Home(),
     ];
 
-    return const Scaffold(body: Center(),);
+    final List<BottomNavigationBarItem> _navItem = [
+      const BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.notifications_none), label: ""),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.heart_broken_rounded), label: ""),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline_sharp), label: ""),
+    ];
+
+    final _bottomBar = BottomNavigationBar(
+      items: _navItem,
+      onTap: onTap,
+      currentIndex: currentIndex,
+      selectedItemColor: ColordilJobsApp.primary,
+      iconSize: 28.0,
+      unselectedItemColor: ColordilJobsApp.grey,
+    );
+
+    return Scaffold(
+      body: Center(
+        child: screens[currentIndex],
+      ),
+      bottomNavigationBar: _bottomBar,
+    );
   }
 }

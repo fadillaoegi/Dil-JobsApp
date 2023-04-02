@@ -128,7 +128,7 @@ class _SignInState extends State<SignIn> {
               Center(
                 child: ButtonFill(
                   onpress: () => Navigator.pushReplacementNamed(
-                      context, RouteDiljobsapp.home),
+                      context, RouteDiljobsapp.main),
                   text: "Sign In",
                   color: ColordilJobsApp.primary,
                   fontColor: ColordilJobsApp.white,

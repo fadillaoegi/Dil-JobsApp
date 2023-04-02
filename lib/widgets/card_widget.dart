@@ -1,3 +1,4 @@
+import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
@@ -10,19 +11,22 @@ class CardCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
-      width: 150,
-      height: 200,
-      decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(image!)),
-      ),
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: Text(
-          text!,
-          style: white400.copyWith(fontSize: 18.0),
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, RouteDiljobsapp.category),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+        width: 150,
+        height: 200,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(image!)),
+        ),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            text!,
+            style: white400.copyWith(fontSize: 18.0),
+          ),
         ),
       ),
     );
