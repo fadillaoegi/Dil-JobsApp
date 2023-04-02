@@ -1,6 +1,7 @@
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/screens/detail_screen.dart';
+import 'package:diljobsapp/screens/home_screen.dart';
 import 'package:diljobsapp/screens/signin_screen.dart';
 import 'package:diljobsapp/screens/signup_screen.dart';
 import 'package:diljobsapp/screens/splash_screen.dart';
@@ -24,6 +25,7 @@ class MainApp extends StatelessWidget {
         RouteDiljobsapp.signup: (context) => const SignUp(),
         RouteDiljobsapp.category: (context) => const Categories(),
         RouteDiljobsapp.detail: (context) => const Detail(),
+        RouteDiljobsapp.home: (context) => const Home(),
       },
     );
   }

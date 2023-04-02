@@ -9,7 +9,7 @@ class Categories extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
-          children: [Text("INI HALAMAN CATEGORIES")],
+          children: const [Text("INI HALAMAN CATEGORIES")],
         ),
       ),
     );

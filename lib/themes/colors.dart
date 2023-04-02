@@ -6,4 +6,5 @@ class ColordilJobsApp {
   static const primary = Color(0xff4141A4);
   static const white = Color(0xffffffff);
   static const red = Color(0xffFD4F56);
+  static const garis = Color(0xffECEDF1);
 }

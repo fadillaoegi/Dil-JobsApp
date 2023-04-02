@@ -2,10 +2,10 @@ import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/button_fill_widget.dart';
-import 'package:diljobsapp/widgets/form_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
-import 'package:email_validator/email_validator.dart';
+// import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+// import 'package:validators/validators.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -19,6 +19,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     // bool isEmailValid = EmailValidator.validate();
     TextEditingController _emailController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
     bool isEmailValid = true;
 
     return Scaffold(
@@ -60,15 +61,21 @@ class _SignInState extends State<SignIn> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    onChanged: (value) {
-                      // print(email);
-                      bool isValid = EmailValidator.validate(value);
-                      // isValid
-                      //     ? setState(() {
-                      //         isEmailValid = true;
-                      //       })
-                      //     : print("No True");
-                    },
+                    // onChanged: (email) {
+                    //   bool isValid = EmailValidator.validate(email);
+                    //   isValid
+                    //       ? print("Yes True Email")
+                    //       : print("No True Email");
+                    //   if (isValid) {
+                    //     setState(() {
+                    //       isEmailValid = true;
+                    //     });
+                    //   } else {
+                    //     setState(() {
+                    //       isEmailValid = false;
+                    //     });
+                    //   }
+                    // },
                     decoration: InputDecoration(
                       fillColor: const Color(0xffF1F0F5),
                       filled: true,
@@ -88,9 +95,32 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 8.0,
               ),
-              FormCustom(
-                text: "Password",
-                obsecure: true,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Password",
+                    style: grey300.copyWith(fontSize: 16.0),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      fillColor: const Color(0xffF1F0F5),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100.0),
+                          borderSide: BorderSide.none),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100),
+                          borderSide:
+                              const BorderSide(color: ColordilJobsApp.primary)),
+                    ),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 40.0,

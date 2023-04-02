@@ -9,7 +9,7 @@ class Detail extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
-          children: [Text("INI HALAMAN Detail")],
+          children: const [Text("INI HALAMAN Detail")],
         ),
       ),
     );
