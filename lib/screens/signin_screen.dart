@@ -19,7 +19,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     // bool isEmailValid = EmailValidator.validate();
     TextEditingController _emailController = TextEditingController();
-    bool isEmailValid = false;
+    bool isEmailValid = true;
 
     return Scaffold(
       body: Container(
@@ -63,13 +63,11 @@ class _SignInState extends State<SignIn> {
                     onChanged: (value) {
                       // print(email);
                       bool isValid = EmailValidator.validate(value);
-                      isValid
-                          ? setState(() {
-                              isEmailValid = true;
-                            })
-                          : setState(() {
-                              isEmailValid = false;
-                            });
+                      // isValid
+                      //     ? setState(() {
+                      //         isEmailValid = true;
+                      //       })
+                      //     : print("No True");
                     },
                     decoration: InputDecoration(
                       fillColor: const Color(0xffF1F0F5),
