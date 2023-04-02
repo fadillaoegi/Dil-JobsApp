@@ -1,4 +1,7 @@
+import 'package:diljobsapp/screens/favorit_screen.dart';
 import 'package:diljobsapp/screens/home_screen.dart';
+import 'package:diljobsapp/screens/notification_screen.dart';
+import 'package:diljobsapp/screens/profile_screen.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +25,9 @@ class _NavbarState extends State<Navbar> {
   Widget build(BuildContext context) {
     final List<Widget> screens = [
       const Home(),
-      const Home(),
-      const Home(),
-      const Home(),
+      const Notif(),
+      const Favorit(),
+      const Profile(),
     ];
 
     final List<BottomNavigationBarItem> _navItem = [

@@ -19,7 +19,7 @@ class CardCustom extends StatelessWidget {
         width: 150,
         height: 200,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(image!)),
+          image: DecorationImage(image: AssetImage(image!), fit: BoxFit.fill),
         ),
         child: Align(
           alignment: Alignment.bottomLeft,
