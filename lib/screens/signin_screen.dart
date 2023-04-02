@@ -5,6 +5,7 @@ import 'package:diljobsapp/widgets/avatar_widget.dart';
 import 'package:diljobsapp/widgets/button_fill_widget.dart';
 import 'package:diljobsapp/widgets/form_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -17,6 +18,10 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
+    // String email = 'shofa@gmail.com';
+    // bool isEmailValid = EmailValidator.validate(email);
+    bool isEmailValid = true;
+    TextEditingController emailController = TextEditingController(text: '');
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -43,8 +48,47 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 40.0,
               ),
-              FormCustom(
-                text: "Email",
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Email",
+                    style: grey300.copyWith(fontSize: 16.0),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  TextFormField(
+                    controller: emailController,
+                    onChanged: (value) {
+                      print(value);
+                      bool isValid = EmailValidator.validate(value);
+                      print(isValid);
+                      if (isValid) {
+                        setState(() {
+                          isEmailValid = true;
+                        });
+                      } else {
+                        setState(() {
+                          isEmailValid = false;
+                        });
+                      }
+                    },
+                    decoration: InputDecoration(
+                      fillColor: const Color(0xffF1F0F5),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100.0),
+                          borderSide: BorderSide.none),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100),
+                          borderSide: BorderSide(
+                              color: isEmailValid
+                                  ? ColordilJobsApp.primary
+                                  : ColordilJobsApp.red)),
+                    ),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 6.0,
