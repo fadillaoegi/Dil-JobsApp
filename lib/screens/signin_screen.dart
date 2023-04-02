@@ -17,10 +17,10 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    // String email = 'shofa@gmail.com';
-    // bool isEmailValid = EmailValidator.validate(email);
-    bool isEmailValid = false;
+    // bool isEmailValid = EmailValidator.validate();
     TextEditingController _emailController = TextEditingController();
+    bool isEmailValid = false;
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -61,18 +61,15 @@ class _SignInState extends State<SignIn> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) {
-                      // print(value);
+                      // print(email);
                       bool isValid = EmailValidator.validate(value);
-                      // print(isValid);
-                      if (isValid) {
-                        setState(() {
-                          isEmailValid = true;
-                        });
-                      } else {
-                        setState(() {
-                          isEmailValid = false;
-                        });
-                      }
+                      isValid
+                          ? setState(() {
+                              isEmailValid = true;
+                            })
+                          : setState(() {
+                              isEmailValid = false;
+                            });
                     },
                     decoration: InputDecoration(
                       fillColor: const Color(0xffF1F0F5),
@@ -91,10 +88,10 @@ class _SignInState extends State<SignIn> {
                 ],
               ),
               const SizedBox(
-                height: 6.0,
+                height: 8.0,
               ),
               FormCustom(
-                text: "Email",
+                text: "Password",
                 obsecure: true,
               ),
               const SizedBox(
