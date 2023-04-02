@@ -1,7 +1,6 @@
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
-import 'package:diljobsapp/widgets/avatar_widget.dart';
 import 'package:diljobsapp/widgets/button_fill_widget.dart';
 import 'package:diljobsapp/widgets/form_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
@@ -20,8 +19,8 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     // String email = 'shofa@gmail.com';
     // bool isEmailValid = EmailValidator.validate(email);
-    bool isEmailValid = true;
-    TextEditingController emailController = TextEditingController(text: '');
+    bool isEmailValid = false;
+    TextEditingController _emailController = TextEditingController();
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -59,11 +58,12 @@ class _SignInState extends State<SignIn> {
                     height: 10.0,
                   ),
                   TextFormField(
-                    controller: emailController,
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
                     onChanged: (value) {
-                      print(value);
+                      // print(value);
                       bool isValid = EmailValidator.validate(value);
-                      print(isValid);
+                      // print(isValid);
                       if (isValid) {
                         setState(() {
                           isEmailValid = true;
