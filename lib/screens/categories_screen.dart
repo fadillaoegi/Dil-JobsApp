@@ -6,11 +6,21 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          children: [Text("INI HALAMAN CATEGORIES")],
-        ),
+      body: SizedBox(
+        child: Stack(children: [
+          Container(
+            width: 560,
+            height: 270,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage("assets/images/bg_secondhomepage.png"))),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [],
+          ),
+        ]),
       ),
     );
   }
