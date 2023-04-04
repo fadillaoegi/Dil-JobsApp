@@ -3,7 +3,7 @@ import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/button_fill_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
-// import 'package:email_validator/email_validator.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 // import 'package:validators/validators.dart';
 
@@ -15,13 +15,11 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  bool isEmailValid = false;
   @override
   Widget build(BuildContext context) {
-    // bool isEmailValid = EmailValidator.validate();
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
-    bool isEmailValid = true;
-
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -61,21 +59,21 @@ class _SignInState extends State<SignIn> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    // onChanged: (email) {
-                    //   bool isValid = EmailValidator.validate(email);
-                    //   isValid
-                    //       ? print("Yes True Email")
-                    //       : print("No True Email");
-                    //   if (isValid) {
-                    //     setState(() {
-                    //       isEmailValid = true;
-                    //     });
-                    //   } else {
-                    //     setState(() {
-                    //       isEmailValid = false;
-                    //     });
-                    //   }
-                    // },
+                    onChanged: (email) {
+                      bool isValid = EmailValidator.validate(email);
+                      isValid
+                          ? print("Yes True Email")
+                          : print("No True Email");
+                      if (isValid) {
+                        setState(() {
+                          isEmailValid = true;
+                        });
+                      } else {
+                        setState(() {
+                          isEmailValid = false;
+                        });
+                      }
+                    },
                     decoration: InputDecoration(
                       fillColor: const Color(0xffF1F0F5),
                       filled: true,

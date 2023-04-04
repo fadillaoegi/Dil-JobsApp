@@ -1,4 +1,5 @@
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
+import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,13 @@ class CardCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, RouteDiljobsapp.category),
+      onTap: () => Navigator.push(
+          (context),
+          MaterialPageRoute(
+              builder: (context) => Categories(
+                    image: image,
+                    text: text,
+                  ))),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10.0),
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
