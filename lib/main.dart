@@ -27,7 +27,7 @@ class MainApp extends StatelessWidget {
         RouteDiljobsapp.starter: (context) => const Starter(),
         RouteDiljobsapp.signin: (context) => const SignIn(),
         RouteDiljobsapp.signup: (context) => const SignUp(),
-        RouteDiljobsapp.category: (context) => const Categories(),
+        // RouteDiljobsapp.category: (context) => const Categories(),
         RouteDiljobsapp.detail: (context) => const Detail(),
         RouteDiljobsapp.home: (context) => const Home(),
         RouteDiljobsapp.main: (context) => const Navbar(),

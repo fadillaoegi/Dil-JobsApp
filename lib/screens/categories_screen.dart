@@ -3,7 +3,10 @@ import 'package:diljobsapp/widgets/list_post_widget.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key});
+  Categories({super.key, this.image, this.text});
+
+  String? image;
+  String? text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,9 @@ class Categories extends StatelessWidget {
             Container(
               width: 560,
               height: 270,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image:
-                          AssetImage("assets/images/bg_secondhomepage.png"))),
+                      fit: BoxFit.fill, image: AssetImage(image!))),
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24.0),
                 padding: const EdgeInsets.only(top: 180.0),
@@ -30,7 +31,7 @@ class Categories extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Website Developer",
+                      text!,
                       style: white500.copyWith(fontSize: 24.0),
                     ),
                     Text(

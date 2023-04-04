@@ -1,18 +1,11 @@
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
-import 'package:diljobsapp/widgets/button_fill_widget.dart';
+import 'package:diljobsapp/widgets/Button_fill_widget.dart';
 import 'package:diljobsapp/widgets/list_detail_widget.dart';
 import 'package:flutter/material.dart';
 
-class Detail extends StatefulWidget {
-  const Detail({super.key});
-
-  @override
-  State<Detail> createState() => _DetailState();
-}
-
-class _DetailState extends State<Detail> {
-  bool isApplied = true;
+class Apply extends StatelessWidget {
+  const Apply({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -118,31 +111,14 @@ class _DetailState extends State<Detail> {
               const SizedBox(
                 height: 50.0,
               ),
-              isApplied
-                  ? Center(
-                      child: ButtonFill(
-                        color: ColordilJobsApp.primary,
-                        text: "Apply for Job",
-                        fontColor: ColordilJobsApp.white,
-                        onpress: () {
-                          setState(() {
-                            isApplied = !isApplied;
-                          });
-                        },
-                      ),
-                    )
-                  : Center(
-                      child: ButtonFill(
-                        color: const Color.fromARGB(255, 228, 12, 91),
-                        text: "Cancel Apply",
-                        fontColor: ColordilJobsApp.white,
-                        onpress: () {
-                          setState(() {
-                            isApplied = !isApplied;
-                          });
-                        },
-                      ),
-                    ),
+              Center(
+                child: ButtonFill(
+                  color: ColordilJobsApp.primary,
+                  text: "Apply for Job",
+                  fontColor: ColordilJobsApp.white,
+                  onpress: () {},
+                ),
+              ),
               const SizedBox(
                 height: 4.0,
               ),
