@@ -15,7 +15,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  TextEditingController _emailController = TextEditingController();
+  TextEditingController _emailController = TextEditingController(text: "");
   TextEditingController _passwordController = TextEditingController();
   bool isEmailValid = false;
   @override

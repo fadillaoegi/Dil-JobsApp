@@ -1,4 +1,5 @@
 // import 'dart:async';
+import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ class FormCustom extends StatelessWidget {
   // ControllerCallback? controllerForm;
   String? text;
   bool? obsecure;
-  FormCustom({super.key, this.text, this.obsecure=false});
+  FormCustom({super.key, this.text, this.obsecure = false});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class FormCustom extends StatelessWidget {
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100),
-                borderSide: BorderSide.none),
+                borderSide: BorderSide(color: ColordilJobsApp.primary)),
           ),
         )
       ],
