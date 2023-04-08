@@ -1,3 +1,4 @@
+import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
 class Gender extends StatefulWidget {
@@ -18,13 +19,52 @@ class _GenderState extends State<Gender> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              "Gender",
+              style: black500.copyWith(fontSize: 24.0),
+            ),
+            const SizedBox(
+              height: 40.0,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
+                  height: 100.0,
+                  width: 100.0,
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.black)),
                   child: Column(
-                    children: const [Icon(Icons.male)],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.male,
+                        size: 30.0,
+                      ),
+                      Text(
+                        "Male",
+                        style: black400.copyWith(fontSize: 14.0),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.black)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.female,
+                        size: 30.0,
+                      ),
+                      Text(
+                        "Female",
+                        style: black400.copyWith(fontSize: 14.0),
+                      )
+                    ],
                   ),
                 )
               ],
