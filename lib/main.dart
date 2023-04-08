@@ -1,7 +1,8 @@
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
-import 'package:diljobsapp/screens/categories_screen.dart';
+// import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/screens/detail_screen.dart';
 import 'package:diljobsapp/screens/favorit_screen.dart';
+import 'package:diljobsapp/screens/gender_screen.dart';
 import 'package:diljobsapp/screens/home_screen.dart';
 import 'package:diljobsapp/screens/navbar.dart';
 import 'package:diljobsapp/screens/notification_screen.dart';
@@ -20,8 +21,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: Splash(),
-      initialRoute: RouteDiljobsapp.splash,
+      home: const Gender(),
+      // initialRoute: RouteDiljobsapp.splash,
       routes: {
         RouteDiljobsapp.splash: (context) => const Splash(),
         RouteDiljobsapp.starter: (context) => const Starter(),

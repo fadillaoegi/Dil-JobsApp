@@ -1,4 +1,4 @@
-import 'package:diljobsapp/themes/colors.dart';
+// import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/avatar_widget.dart';
 import 'package:diljobsapp/widgets/card_widget.dart';

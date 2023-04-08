@@ -1,4 +1,4 @@
-import 'package:diljobsapp/routes/routes_diljobapp.dart';
+// import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';

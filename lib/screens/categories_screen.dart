@@ -2,6 +2,7 @@ import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/list_post_widget.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Categories extends StatelessWidget {
   Categories({super.key, this.image, this.text});
 

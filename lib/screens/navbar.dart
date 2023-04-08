@@ -30,7 +30,7 @@ class _NavbarState extends State<Navbar> {
       const Profile(),
     ];
 
-    final List<BottomNavigationBarItem> _navItem = [
+    final List<BottomNavigationBarItem> navItem = [
       const BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
       const BottomNavigationBarItem(
           icon: Icon(Icons.notifications_none), label: ""),
@@ -40,8 +40,8 @@ class _NavbarState extends State<Navbar> {
           icon: Icon(Icons.person_outline_sharp), label: ""),
     ];
 
-    final _bottomBar = BottomNavigationBar(
-      items: _navItem,
+    final bottomBar = BottomNavigationBar(
+      items: navItem,
       onTap: onTap,
       currentIndex: currentIndex,
       selectedItemColor: ColordilJobsApp.primary,
@@ -53,7 +53,7 @@ class _NavbarState extends State<Navbar> {
       body: Center(
         child: screens[currentIndex],
       ),
-      bottomNavigationBar: _bottomBar,
+      bottomNavigationBar: bottomBar,
     );
   }
 }

@@ -19,7 +19,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool isEmailValid = true;
   bool isImage = true;
-  TextEditingController EmailController = TextEditingController(text: "");
+  final TextEditingController emailController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                     height: 10.0,
                   ),
                   TextFormField(
-                    controller: EmailController,
+                    controller: emailController,
                     onChanged: (email) {
                       bool isValid = EmailValidator.validate(email);
 
