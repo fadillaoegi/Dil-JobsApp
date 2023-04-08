@@ -1,4 +1,5 @@
 import 'package:diljobsapp/themes/font_style.dart';
+import 'package:diljobsapp/widgets/gender_widget.dart';
 import 'package:flutter/material.dart';
 
 class Gender extends StatefulWidget {
@@ -48,25 +49,10 @@ class _GenderState extends State<Gender> {
                     ],
                   ),
                 ),
-                Container(
-                  height: 100.0,
-                  width: 100.0,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.female,
-                        size: 30.0,
-                      ),
-                      Text(
-                        "Female",
-                        style: black400.copyWith(fontSize: 14.0),
-                      )
-                    ],
-                  ),
-                )
+                GenderWidget(
+                  icon: Icons.female,
+                  text: "Female",
+                ),
               ],
             )
           ],
