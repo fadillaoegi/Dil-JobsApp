@@ -33,7 +33,7 @@ class FormCustom extends StatelessWidget {
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100),
-                borderSide: BorderSide(color: ColordilJobsApp.primary)),
+                borderSide: const BorderSide(color: ColordilJobsApp.primary)),
           ),
         )
       ],

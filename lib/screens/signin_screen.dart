@@ -61,9 +61,9 @@ class _SignInState extends State<SignIn> {
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (email) {
                       bool isValid = EmailValidator.validate(email);
-                      isValid
-                          ? print("Yes True Email")
-                          : print("No True Email");
+                      // isValid
+                      //     ? print("Yes True Email")
+                      //     : print("No True Email");
                       if (isValid) {
                         setState(() {
                           isEmailValid = true;
