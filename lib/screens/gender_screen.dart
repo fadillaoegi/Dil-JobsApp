@@ -51,7 +51,7 @@ class _GenderState extends State<Gender> {
                 ),
                 GenderWidget(
                   icon: Icons.female,
-                  text: "Femalee",
+                  text: "Female",
                 ),
               ],
             )
