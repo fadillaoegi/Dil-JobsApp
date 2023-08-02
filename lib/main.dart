@@ -1,5 +1,6 @@
 import 'package:diljobsapp/providers/gender_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
+import 'package:diljobsapp/screens/cal_ideal_screen.dart';
 // import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/screens/detail_screen.dart';
 import 'package:diljobsapp/screens/favorit_screen.dart';
@@ -25,13 +26,16 @@ class MainApp extends StatelessWidget {
     return ChangeNotifierProvider<GenderProvider>(
       create: (context) => GenderProvider(),
       child: MaterialApp(
-        home: const Gender(),
-        // initialRoute: RouteDiljobsapp.splash,
+        debugShowCheckedModeBanner: false,
+        // home: const Gender(),
+        initialRoute: RouteDiljobsapp.calIdeal,
         routes: {
           RouteDiljobsapp.splash: (context) => const Splash(),
           RouteDiljobsapp.starter: (context) => const Starter(),
           RouteDiljobsapp.signin: (context) => const SignIn(),
           RouteDiljobsapp.signup: (context) => const SignUp(),
+          RouteDiljobsapp.genderPicker:(context) => const Gender(),
+          RouteDiljobsapp.calIdeal:(context) => const CalIdeal(),
           // RouteDiljobsapp.category: (context) => const Categories(),
           RouteDiljobsapp.detail: (context) => const Detail(),
           RouteDiljobsapp.home: (context) => const Home(),
