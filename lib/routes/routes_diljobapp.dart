@@ -1,5 +1,7 @@
 class RouteDiljobsapp {
   static String root = "/DilJobsApp";
+  static String genderPicker = "$root/genderPicker";
+  static String calIdeal = "$root/calIdeal";
   static String splash = "$root/splash";
   static String gender = "$root/gender";
   static String starter = "$root/starter";

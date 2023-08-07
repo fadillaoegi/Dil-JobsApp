@@ -1,6 +1,4 @@
 import 'package:diljobsapp/providers/gender_provider.dart';
-import 'package:diljobsapp/themes/font_style.dart';
-import 'package:diljobsapp/widgets/gender_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:diljobsapp/providers/gender_provider.dart';
