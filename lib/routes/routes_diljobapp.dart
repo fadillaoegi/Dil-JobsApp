@@ -3,7 +3,6 @@ class RouteDiljobsapp {
   static String genderPicker = "$root/genderPicker";
   static String calIdeal = "$root/calIdeal";
   static String splash = "$root/splash";
-  static String gender = "$root/gender";
   static String starter = "$root/starter";
   static String signin = "$root/signin";
   static String signup = "$root/signup";

@@ -1,4 +1,6 @@
 import 'package:diljobsapp/providers/gender_provider.dart';
+import 'package:diljobsapp/providers/height_provider.dart';
+import 'package:diljobsapp/providers/weight_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/cal_ideal_screen.dart';
 // import 'package:diljobsapp/screens/categories_screen.dart';
@@ -24,20 +26,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<GenderProvider>(
-      create: (context) => GenderProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<GenderProvider>(create: (_) => GenderProvider()),
+        ChangeNotifierProvider<WeightProvider>(create: (_) => WeightProvider()),
+        ChangeNotifierProvider<HeightProvider>(create: (_) => HeightProvider()),
+      ],
       child: MaterialApp(
         // home: const Gender(),
-        initialRoute: RouteDiljobsapp.splash,
+        initialRoute: RouteDiljobsapp.calIdeal,
         routes: {
           RouteDiljobsapp.splash: (context) => const Splash(),
           RouteDiljobsapp.starter: (context) => const Starter(),
           RouteDiljobsapp.signin: (context) => const SignIn(),
           RouteDiljobsapp.signup: (context) => const SignUp(),
-          RouteDiljobsapp.genderPicker:(context) => const Gender(),
-          RouteDiljobsapp.calIdeal:(context) => const CalIdeal(),
+          RouteDiljobsapp.genderPicker: (context) => const Gender(),
+          RouteDiljobsapp.calIdeal: (context) => const CalIdeal(),
           // RouteDiljobsapp.category: (context) => const Categories(),
-          RouteDiljobsapp.gender:(context) => const Gender(),
           RouteDiljobsapp.detail: (context) => const Detail(),
           RouteDiljobsapp.home: (context) => const Home(),
           RouteDiljobsapp.main: (context) => const Navbar(),
