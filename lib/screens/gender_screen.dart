@@ -22,6 +22,7 @@ class _GenderState extends State<Gender> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Consumer<GenderProvider>(
+              // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
               builder: (context, GenderProvider, _) => Text(
                 "Gender Picker",
                 style: TextStyle(
@@ -35,6 +36,7 @@ class _GenderState extends State<Gender> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Consumer<GenderProvider>(
+                  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
                   builder: (context, GenderProvider, _) => GestureDetector(
                     onTap: () {
                       GenderProvider.gender = true;
@@ -66,6 +68,7 @@ class _GenderState extends State<Gender> {
                   ),
                 ),
                 Consumer<GenderProvider>(
+                  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
                   builder: (context, GenderProvider, _) => GestureDetector(
                     onTap: () {
                       GenderProvider.gender = false;
