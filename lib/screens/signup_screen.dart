@@ -92,7 +92,6 @@ class _SignUpState extends State<SignUp> {
                     controller: emailController,
                     onChanged: (email) {
                       bool isValid = EmailValidator.validate(email);
-
                       isValid
                           ? setState(() {
                               isEmailValid = !isEmailValid;
