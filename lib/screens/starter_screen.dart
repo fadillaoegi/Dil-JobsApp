@@ -42,7 +42,10 @@ class Starter extends StatelessWidget {
                     child: Column(
                       children: [
                         ButtonFill(
-                          onpress: () {},
+                          onpress: () {
+                            Navigator.pushReplacementNamed(
+                                context, RouteDiljobsapp.signup);
+                          },
                           text: "Get Started",
                         ),
                         const SizedBox(

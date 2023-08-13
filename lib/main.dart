@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
       ],
       child: MaterialApp(
         // home: const Gender(),
-        initialRoute: RouteDiljobsapp.calIdeal,
+        initialRoute: RouteDiljobsapp.splash,
         routes: {
           RouteDiljobsapp.splash: (context) => const Splash(),
           RouteDiljobsapp.starter: (context) => const Starter(),
