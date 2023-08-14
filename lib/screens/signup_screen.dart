@@ -1,3 +1,6 @@
+import 'package:diljobsapp/models/user_model.dart';
+import 'package:diljobsapp/providers/auth_provider.dart';
+import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
@@ -6,6 +9,7 @@ import 'package:diljobsapp/widgets/form_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/button_fill_widget.dart';
 
@@ -24,8 +28,22 @@ class _SignUpState extends State<SignUp> {
       TextEditingController(text: "");
   final TextEditingController nameController = TextEditingController(text: "");
   final TextEditingController goalController = TextEditingController(text: "");
+
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    var authProvider = Provider.of<AuthProvider>(context);
+    // ignore: unused_local_variable
+    var userProvider = Provider.of<UserProvider>(context);
+
+    // ignore: unused_element
+    void error(message) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(message),
+        backgroundColor: ColordilJobsApp.red,
+      ));
+    }
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -143,7 +161,23 @@ class _SignUpState extends State<SignUp> {
                 child: ButtonFill(
                   fontColor: ColordilJobsApp.white,
                   text: "Sign Up",
-                  onpress: () {},
+                  onpress: () async {
+                    // ignore: unused_local_variable
+                    UserModel? user = await authProvider.register(
+                        nameController.text,
+                        emailController.text,
+                        passwordController.text,
+                        goalController.text);
+
+                    if (user == null) {
+                      error("Akun Sudah Terdaftar");
+                    } else {
+                      userProvider.user = user;
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, RouteDiljobsapp.home, (route) => false);
+                    }
+                  },
                   color: ColordilJobsApp.primary,
                 ),
               ),
