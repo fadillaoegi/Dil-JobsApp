@@ -1,14 +1,14 @@
-// import 'dart:async';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class FormCustom extends StatelessWidget {
-  // ControllerCallback? controllerForm;
   String? text;
   bool? obsecure;
-  FormCustom({super.key, this.text, this.obsecure = false});
+  TextEditingController? controllerForm;
+  FormCustom(
+      {super.key, this.text, this.obsecure = false, this.controllerForm});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class FormCustom extends StatelessWidget {
         ),
         TextFormField(
           obscureText: obsecure!,
-          // controller: controllerForm!,
+          controller: controllerForm!,
           decoration: InputDecoration(
             fillColor: const Color(0xffF1F0F5),
             filled: true,
