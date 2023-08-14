@@ -20,6 +20,10 @@ class _SignUpState extends State<SignUp> {
   bool isEmailValid = true;
   bool isImage = true;
   final TextEditingController emailController = TextEditingController(text: "");
+  final TextEditingController passwordController =
+      TextEditingController(text: "");
+  final TextEditingController nameController = TextEditingController(text: "");
+  final TextEditingController goalController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +78,7 @@ class _SignUpState extends State<SignUp> {
               ),
               FormCustom(
                 text: "Full Name",
+                controllerForm: nameController,
               ),
               const SizedBox(
                 height: 6.0,
@@ -122,12 +127,14 @@ class _SignUpState extends State<SignUp> {
               FormCustom(
                 obsecure: true,
                 text: "Password",
+                controllerForm: passwordController,
               ),
               const SizedBox(
                 height: 6.0,
               ),
               FormCustom(
                 text: "Your Goal",
+                controllerForm: goalController,
               ),
               const SizedBox(
                 height: 40.0,

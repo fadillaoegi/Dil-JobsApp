@@ -58,6 +58,7 @@ class CalIdeal extends StatelessWidget {
                 onChanged: ((newValue) {
                   newValue = newValue.roundToDouble();
                   heightProvider.height = newValue;
+                  // ignore: avoid_print
                   print("Tinggi Badan: $newValue");
                 }),
               ),
