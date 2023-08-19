@@ -35,7 +35,8 @@ class _SignUpState extends State<SignUp> {
     var authProvider = Provider.of<AuthProvider>(context);
     // ignore: unused_local_variable
     var userProvider = Provider.of<UserProvider>(context);
-
+    // ignore: unused_local_variable
+    bool loading = false;
     // ignore: unused_element
     void error(message) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -158,28 +159,48 @@ class _SignUpState extends State<SignUp> {
                 height: 40.0,
               ),
               Center(
-                child: ButtonFill(
-                  fontColor: ColordilJobsApp.white,
-                  text: "Sign Up",
-                  onpress: () async {
-                    // ignore: unused_local_variable
-                    UserModel? user = await authProvider.register(
-                        nameController.text,
-                        emailController.text,
-                        passwordController.text,
-                        goalController.text);
+                child: loading
+                    // ignore: dead_code
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ButtonFill(
+                        fontColor: ColordilJobsApp.white,
+                        text: "Sign Up",
+                        onpress: () async {
+                          if (nameController.text.isEmpty ||
+                              emailController.text.isEmpty ||
+                              passwordController.text.isEmpty ||
+                              goalController.text.isEmpty) {
+                            error(
+                                "Pastikan tidak ada yg terlewat dalam mengisi form");
+                          } else {
+                            setState(() {
+                              loading = true;
+                            });
+                            // ignore: unused_local_variable
+                            UserModel? user = await authProvider.register(
+                                nameController.text,
+                                emailController.text,
+                                passwordController.text,
+                                goalController.text);
 
-                    if (user == null) {
-                      error("Akun Sudah Terdaftar");
-                    } else {
-                      userProvider.user = user;
-                      // ignore: use_build_context_synchronously
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, RouteDiljobsapp.home, (route) => false);
-                    }
-                  },
-                  color: ColordilJobsApp.primary,
-                ),
+                            setState(() {
+                              loading = false;
+                            });
+
+                            if (user == null) {
+                              error("Akun Sudah Terdaftar");
+                            } else {
+                              userProvider.user = user;
+                              // ignore: use_build_context_synchronously
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  RouteDiljobsapp.home, (route) => false);
+                            }
+                          }
+                        },
+                        color: ColordilJobsApp.primary,
+                      ),
               ),
               const SizedBox(
                 height: 20.0,
