@@ -1,3 +1,6 @@
+import 'package:diljobsapp/models/user_model.dart';
+import 'package:diljobsapp/providers/auth_provider.dart';
+import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
@@ -5,6 +8,7 @@ import 'package:diljobsapp/widgets/button_fill_widget.dart';
 import 'package:diljobsapp/widgets/header_text_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:validators/validators.dart';
 
 class SignIn extends StatefulWidget {
@@ -15,11 +19,26 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final TextEditingController _emailController = TextEditingController(text: "");
+  final TextEditingController _emailController =
+      TextEditingController(text: "");
   final TextEditingController _passwordController = TextEditingController();
   bool isEmailValid = false;
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    var authProvider = Provider.of<AuthProvider>(context);
+    // ignore: unused_local_variable
+    var userProvider = Provider.of<UserProvider>(context);
+
+    // ignore: unused_element
+    void error(message) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(message),
+        backgroundColor: ColordilJobsApp.red,
+      ));
+    }
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -124,13 +143,41 @@ class _SignInState extends State<SignIn> {
                 height: 40.0,
               ),
               Center(
-                child: ButtonFill(
-                  onpress: () => Navigator.pushReplacementNamed(
-                      context, RouteDiljobsapp.main),
-                  text: "Sign In",
-                  color: ColordilJobsApp.primary,
-                  fontColor: ColordilJobsApp.white,
-                ),
+                child: loading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ButtonFill(
+                        onpress: () async {
+                          if (_emailController.text.isEmpty ||
+                              _passwordController.text.isEmpty) {
+                            error("Email dan password tidak boleh kosong");
+                          } else {
+                            setState(() {
+                              loading = true;
+                            });
+                            // ignore: unused_local_variable
+                            UserModel? user = await authProvider.login(
+                                _emailController.text,
+                                _passwordController.text);
+
+                            setState(() {
+                              loading = false;
+                            });
+
+                            if (user == null) {
+                              error("Email atau password salah");
+                            } else {
+                              // ignore: use_build_context_synchronously
+                              Navigator.pushReplacementNamed(
+                                  context, RouteDiljobsapp.main);
+                            }
+                          }
+                        },
+                        text: "Sign In",
+                        color: ColordilJobsApp.primary,
+                        fontColor: ColordilJobsApp.white,
+                      ),
               ),
               const SizedBox(
                 height: 20.0,
