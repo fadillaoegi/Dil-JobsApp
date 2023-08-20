@@ -1,15 +1,14 @@
 import 'package:diljobsapp/providers/auth_provider.dart';
+import 'package:diljobsapp/providers/category_provider.dart';
 import 'package:diljobsapp/providers/gender_provider.dart';
 import 'package:diljobsapp/providers/height_provider.dart';
 import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/providers/weight_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/cal_ideal_screen.dart';
-// import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/screens/detail_screen.dart';
 import 'package:diljobsapp/screens/favorit_screen.dart';
 import 'package:diljobsapp/screens/gender_screen.dart';
-// import 'package:diljobsapp/screens/gender_screen.dart';
 import 'package:diljobsapp/screens/home_screen.dart';
 import 'package:diljobsapp/screens/navbar.dart';
 import 'package:diljobsapp/screens/notification_screen.dart';
@@ -35,6 +34,8 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider<HeightProvider>(create: (_) => HeightProvider()),
         ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
         ChangeNotifierProvider<UserProvider>(create: (_) => UserProvider()),
+        ChangeNotifierProvider<CategoryProvider>(
+            create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
         // home: const Gender(),
@@ -46,12 +47,11 @@ class MainApp extends StatelessWidget {
           RouteDiljobsapp.signup: (context) => const SignUp(),
           RouteDiljobsapp.genderPicker: (context) => const Gender(),
           RouteDiljobsapp.calIdeal: (context) => const CalIdeal(),
-          // RouteDiljobsapp.category: (context) => const Categories(),
           RouteDiljobsapp.detail: (context) => const Detail(),
           RouteDiljobsapp.home: (context) => const Home(),
           RouteDiljobsapp.main: (context) => const Navbar(),
           RouteDiljobsapp.profile: (context) => const Profile(),
-          RouteDiljobsapp.notification: (context) => const Notif(),
+          RouteDiljobsapp.notification: (context) => const NotifScreen(),
           RouteDiljobsapp.favorite: (context) => const Favorit(),
         },
       ),

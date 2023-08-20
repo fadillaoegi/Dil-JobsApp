@@ -23,6 +23,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool isEmailValid = true;
   bool isImage = true;
+  bool loading = false;
   final TextEditingController emailController = TextEditingController(text: "");
   final TextEditingController passwordController =
       TextEditingController(text: "");
@@ -35,8 +36,6 @@ class _SignUpState extends State<SignUp> {
     var authProvider = Provider.of<AuthProvider>(context);
     // ignore: unused_local_variable
     var userProvider = Provider.of<UserProvider>(context);
-    // ignore: unused_local_variable
-    bool loading = false;
     // ignore: unused_element
     void error(message) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -160,7 +159,6 @@ class _SignUpState extends State<SignUp> {
               ),
               Center(
                 child: loading
-                    // ignore: dead_code
                     ? const Center(
                         child: CircularProgressIndicator(),
                       )

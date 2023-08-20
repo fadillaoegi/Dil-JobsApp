@@ -25,7 +25,7 @@ class _NavbarState extends State<Navbar> {
   Widget build(BuildContext context) {
     final List<Widget> screens = [
       const Home(),
-      const Notif(),
+      const NotifScreen(),
       const Favorit(),
       const Profile(),
     ];
