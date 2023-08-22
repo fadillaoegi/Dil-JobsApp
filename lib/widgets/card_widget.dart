@@ -1,18 +1,16 @@
-// import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/categories_screen.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CardCustom extends StatelessWidget {
-  CardCustom({super.key, this.image, this.text});
-
   String? image;
   String? text;
+  CardCustom({super.key, this.image, this.text});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () => Navigator.push(
           (context),
           MaterialPageRoute(
@@ -26,7 +24,7 @@ class CardCustom extends StatelessWidget {
         width: 150,
         height: 200,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(image!), fit: BoxFit.fill),
+          image: DecorationImage(image: NetworkImage(image!), fit: BoxFit.fill),
         ),
         child: Align(
           alignment: Alignment.bottomLeft,

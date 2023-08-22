@@ -59,6 +59,7 @@ class Home extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 20.0),
+                height: 200,
                 child: FutureBuilder<List<CategoryModel>>(
                     future: categoryProivder.getCategories(),
                     builder: (context, snapshot) {
@@ -66,12 +67,14 @@ class Home extends StatelessWidget {
                         return ListView(
                           scrollDirection: Axis.horizontal,
                           children: snapshot.data!
-                              .map((category) => CardCustom(
-                                    image: category.imageUrl,
-                                    text: category.name,
-                                  ))
+                              .map(
+                                (category) => CardCustom(
+                                  image: category.imageUrl,
+                                  text: category.name,
+                                ),
+                              )
                               .toList(),
-                          // children: [
+                          //     [
                           //   CardCustom(
                           //     image: "assets/images/card_category.png",
                           //     text: "Mobile Developer",
