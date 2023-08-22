@@ -36,8 +36,8 @@ class Home extends StatelessWidget {
                 children: [
                   HeaderText(
                     textOne: 'Haloo,',
-                    textTwo: 'Shofa',
-                    // textTwo: userProvider.user.name,
+                    // textTwo: 'Shofa',
+                    textTwo: userProvider.user.name,
                   ),
                   // Text(userProvider.user.name),
                   Container(
