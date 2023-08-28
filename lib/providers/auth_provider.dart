@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:diljobsapp/apis/api_config.dart';
 import 'package:diljobsapp/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -16,8 +17,7 @@ class AuthProvider with ChangeNotifier {
         "goal": goal
       };
 
-      var response = await http.post(
-          Uri.parse("https://future-jobs-api.vercel.app/register"),
+      var response = await http.post(Uri.parse(ApiConfigDilJob.apiAuthRegister),
           body: body);
 
       // ignore: avoid_print
@@ -45,9 +45,8 @@ class AuthProvider with ChangeNotifier {
         "password": password,
       };
 
-      var response = await http.post(
-          Uri.parse("https://future-jobs-api.vercel.app/login"),
-          body: body);
+      var response =
+          await http.post(Uri.parse(ApiConfigDilJob.apiAuthLogin), body: body);
 
       // ignore: avoid_print
       print(response.statusCode);
