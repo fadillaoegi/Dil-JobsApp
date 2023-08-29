@@ -1,7 +1,4 @@
 # diljobsapp
 
-A new Flutter project.
-
-## Getting Started
-
-DiljobApp adalah sebuah aplikasi pencarian lowongan kerja
+DiljobApp adalah sebuah aplikasi pencarian lowongan kerja yang dibuat
+dengan menggunakan framework Flutter dan menggunakan state management provider
