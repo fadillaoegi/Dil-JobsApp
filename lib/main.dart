@@ -40,6 +40,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         // home: const Gender(),
         initialRoute: RouteDiljobsapp.splash,
+        debugShowCheckedModeBanner: false,
         routes: {
           RouteDiljobsapp.splash: (context) => const Splash(),
           RouteDiljobsapp.starter: (context) => const Starter(),
