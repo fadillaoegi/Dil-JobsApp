@@ -28,7 +28,7 @@ class ListPost extends StatelessWidget {
             width: 45.0,
             height: 45.0,
             margin: const EdgeInsets.only(right: 14.0),
-            child: Image.asset(image!),
+            child: Image.network(image!),
           ),
           Expanded(
             child: Column(

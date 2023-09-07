@@ -2,6 +2,7 @@ import 'package:diljobsapp/providers/auth_provider.dart';
 import 'package:diljobsapp/providers/category_provider.dart';
 import 'package:diljobsapp/providers/gender_provider.dart';
 import 'package:diljobsapp/providers/height_provider.dart';
+import 'package:diljobsapp/providers/job_provider.dart';
 import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/providers/weight_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
@@ -36,6 +37,9 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider<UserProvider>(create: (_) => UserProvider()),
         ChangeNotifierProvider<CategoryProvider>(
             create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(
+          create: (_) => JobProvider(),
+        )
       ],
       child: MaterialApp(
         // home: const Gender(),
