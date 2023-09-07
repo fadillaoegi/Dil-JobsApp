@@ -1,6 +1,8 @@
 // import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/models/category_model.dart';
+import 'package:diljobsapp/models/job_model.dart';
 import 'package:diljobsapp/providers/category_provider.dart';
+import 'package:diljobsapp/providers/job_provider.dart';
 import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/avatar_widget.dart';
@@ -19,6 +21,7 @@ class Home extends StatelessWidget {
     var userProvider = Provider.of<UserProvider>(context);
     // ignore: unused_local_variable
     var categoryProivder = Provider.of<CategoryProvider>(context);
+    var jobProvider = Provider.of<JobProvider>(context);
 
     return Scaffold(
       body: Container(
@@ -36,8 +39,8 @@ class Home extends StatelessWidget {
                 children: [
                   HeaderText(
                     textOne: 'Haloo,',
-                    // textTwo: 'Shofa',
-                    textTwo: userProvider.user.name,
+                    textTwo: 'Nabila',
+                    // textTwo: userProvider.user.name,
                   ),
                   // Text(userProvider.user.name),
                   Container(
@@ -115,23 +118,40 @@ class Home extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 26.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListPost(
-                        image: "assets/images/google-icon.png",
-                        title: "Front-end Developer",
-                        subtitle: "Google"),
-                    ListPost(
-                        image: "assets/images/instagram-icon.png",
-                        title: "Back-end Developer",
-                        subtitle: "Google"),
-                    ListPost(
-                        image: "assets/images/facebook-icon.png",
-                        title: "Dekstop Developer",
-                        subtitle: "Google"),
-                  ],
-                ),
+                child: FutureBuilder<List<JobModel>>(
+                    future: jobProvider.getJobs(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return Column(
+                          children: snapshot.data!
+                              .map((job) => ListPost(
+                                    image: job.companyLogo,
+                                    title: job.name,
+                                    subtitle: job.companyName,
+                                    place: job.location,
+                                  ))
+                              .toList(),
+                          // [
+                          //   ListPost(
+                          //       image: "assets/images/google-icon.png",
+                          //       title: "Front-end Developer",
+                          //       subtitle: "Google"),
+                          //   ListPost(
+                          //       image: "assets/images/instagram-icon.png",
+                          //       title: "Back-end Developer",
+                          //       subtitle: "Google"),
+                          //   ListPost(
+                          //       image: "assets/images/facebook-icon.png",
+                          //       title: "Dekstop Developer",
+                          //       subtitle: "Google"),
+                          // ],
+                        );
+                      }
+
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
               )
             ],
           ),
