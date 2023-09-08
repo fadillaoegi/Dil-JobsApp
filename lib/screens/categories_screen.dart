@@ -1,6 +1,9 @@
+import 'package:diljobsapp/models/job_model.dart';
+import 'package:diljobsapp/providers/job_provider.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/list_post_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class Categories extends StatelessWidget {
@@ -11,6 +14,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var jobProvider = Provider.of<JobProvider>(context);
     return Scaffold(
       body: SizedBox(
         height: double.infinity,
@@ -21,13 +25,13 @@ class Categories extends StatelessWidget {
             // NOTE: HEDADER
             Container(
               width: 560,
-              height: 270,
+              height: 380,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage(image!))),
+                      fit: BoxFit.fill, image: NetworkImage(image!))),
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24.0),
-                padding: const EdgeInsets.only(top: 180.0),
+                padding: const EdgeInsets.only(top: 280.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -58,18 +62,40 @@ class Categories extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  ListPost(
-                      image: "assets/images/google-icon.png",
-                      title: "Front-end Developer",
-                      subtitle: "Google"),
-                  ListPost(
-                      image: "assets/images/instagram-icon.png",
-                      title: "Back-end Developer",
-                      subtitle: "Google"),
-                  ListPost(
-                      image: "assets/images/facebook-icon.png",
-                      title: "Dekstop Developer",
-                      subtitle: "Google"),
+
+                  FutureBuilder<List<JobModel>>(
+                      future: jobProvider.getJobsByCategory(text!),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return Column(
+                            children: snapshot.data!
+                                .map((job) => ListPost(
+                                      image: job.companyLogo,
+                                      title: job.name,
+                                      subtitle: job.companyName,
+                                      place: job.location,
+                                    ))
+                                .toList(),
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
+
+                  // NOTE: STATIS DATA
+                  // ListPost(
+                  //     image: "assets/images/google-icon.png",
+                  //     title: "Front-end Developer",
+                  //     subtitle: "Google"),
+                  // ListPost(
+                  //     image: "assets/images/instagram-icon.png",
+                  //     title: "Back-end Developer",
+                  //     subtitle: "Google"),
+                  // ListPost(
+                  //     image: "assets/images/facebook-icon.png",
+                  //     title: "Dekstop Developer",
+                  //     subtitle: "Google"),
                   Text(
                     "New Start Up",
                     style: black300.copyWith(fontSize: 16.0),
@@ -77,18 +103,41 @@ class Categories extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  ListPost(
-                      image: "assets/images/google-icon.png",
-                      title: "Front-end Developer",
-                      subtitle: "Google"),
-                  ListPost(
-                      image: "assets/images/instagram-icon.png",
-                      title: "Back-end Developer",
-                      subtitle: "Google"),
-                  ListPost(
-                      image: "assets/images/facebook-icon.png",
-                      title: "Dekstop Developer",
-                      subtitle: "Google"),
+
+                  FutureBuilder<List<JobModel>>(
+                      future: jobProvider.getJobs(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return Column(
+                            children: snapshot.data!
+                                .map((job) => ListPost(
+                                      image: job.companyLogo,
+                                      title: job.name,
+                                      subtitle: job.companyName,
+                                      place: job.location,
+                                    ))
+                                .toList(),
+                          );
+                        }
+
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
+
+                  // NOTE: STATIS DATA
+                  // ListPost(
+                  //     image: "assets/images/google-icon.png",
+                  //     title: "Front-end Developer",
+                  //     subtitle: "Google"),
+                  // ListPost(
+                  //     image: "assets/images/instagram-icon.png",
+                  //     title: "Back-end Developer",
+                  //     subtitle: "Google"),
+                  // ListPost(
+                  //     image: "assets/images/facebook-icon.png",
+                  //     title: "Dekstop Developer",
+                  //     subtitle: "Google"),
                 ],
               ),
             ),
