@@ -60,6 +60,8 @@ class Home extends StatelessWidget {
                 "Hot Categories",
                 style: black400.copyWith(fontSize: 16.0),
               ),
+
+              // NOTE: DINAMIS DATA
               Container(
                 padding: const EdgeInsets.only(top: 20.0),
                 height: 200,
@@ -77,6 +79,8 @@ class Home extends StatelessWidget {
                                 ),
                               )
                               .toList(),
+
+                          // NOTE: STATIS DATA
                           //     [
                           //   CardCustom(
                           //     image: "assets/images/card_category.png",
@@ -116,6 +120,8 @@ class Home extends StatelessWidget {
                 "Just Posted",
                 style: black400.copyWith(fontSize: 16.0),
               ),
+
+              // NOTE: DINAMIS DATA
               Container(
                 margin: const EdgeInsets.only(top: 26.0),
                 child: FutureBuilder<List<JobModel>>(
@@ -131,6 +137,8 @@ class Home extends StatelessWidget {
                                     place: job.location,
                                   ))
                               .toList(),
+                          
+                          // NOTE: STATIS DATA
                           // [
                           //   ListPost(
                           //       image: "assets/images/google-icon.png",

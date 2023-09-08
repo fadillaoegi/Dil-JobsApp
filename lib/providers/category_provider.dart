@@ -11,9 +11,9 @@ class CategoryProvider with ChangeNotifier {
           .get(Uri.parse('https://future-jobs-api.vercel.app/categories'));
 
       // ignore: avoid_print
-      print(response.statusCode);
+      // print(response.statusCode);
       // ignore: avoid_print
-      print(response.body);
+      // print(response.body);
 
       if (response.statusCode == 200) {
         List<CategoryModel> categories = [];
