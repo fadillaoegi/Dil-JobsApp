@@ -1,5 +1,6 @@
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
+import 'package:diljobsapp/widgets/alert_applied_widget.dart';
 import 'package:diljobsapp/widgets/button_fill_widget.dart';
 import 'package:diljobsapp/widgets/list_detail_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +26,12 @@ class _DetailState extends State<Detail> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              isApplied ? const SizedBox() : const AlertApplied(),
               Center(
                 child: Container(
-                    margin: const EdgeInsets.only(bottom: 30.0),
+                    margin: const EdgeInsets.only(
+                      bottom: 30.0,
+                    ),
                     width: 60.0,
                     height: 60.0,
                     child: Image.asset("assets/images/google-icon.png")),
@@ -135,7 +139,7 @@ class _DetailState extends State<Detail> {
                   : Center(
                       child: ButtonFill(
                         color: const Color.fromARGB(255, 228, 12, 91),
-                        text: "Cancel Apply",
+                        text: "Apply for Job",
                         fontColor: ColordilJobsApp.white,
                         onpress: () {
                           setState(() {
