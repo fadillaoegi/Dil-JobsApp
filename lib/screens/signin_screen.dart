@@ -169,8 +169,12 @@ class _SignInState extends State<SignIn> {
                               error("Email atau password salah");
                             } else {
                               // ignore: use_build_context_synchronously
+                              userProvider.user = user;
+                              // ignore: use_build_context_synchronously
                               Navigator.pushReplacementNamed(
-                                  context, RouteDiljobsapp.main);
+                                context,
+                                RouteDiljobsapp.main,
+                              );
                             }
                           }
                         },

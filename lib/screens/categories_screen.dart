@@ -7,10 +7,11 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class Categories extends StatelessWidget {
-  Categories({super.key, this.image, this.text});
-
+  // final CategoryModel category;
+  // Categories(this.category, {super.key});
   String? image;
   String? text;
+  Categories({super.key, this.image, this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +70,7 @@ class Categories extends StatelessWidget {
                         if (snapshot.connectionState == ConnectionState.done) {
                           return Column(
                             children: snapshot.data!
-                                .map((job) => ListPost(
-                                      image: job.companyLogo,
-                                      title: job.name,
-                                      subtitle: job.companyName,
-                                      place: job.location,
-                                    ))
+                                .map((job) => ListPost(job))
                                 .toList(),
                           );
                         }
@@ -109,14 +105,12 @@ class Categories extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.done) {
                           return Column(
-                            children: snapshot.data!
-                                .map((job) => ListPost(
-                                      image: job.companyLogo,
-                                      title: job.name,
-                                      subtitle: job.companyName,
-                                      place: job.location,
-                                    ))
-                                .toList(),
+                            children: snapshot.data!.map((job) => ListPost(job
+                                // image: job.companyLogo,
+                                // title: job.name,
+                                // subtitle: job.companyName,
+                                // place: job.location,
+                                )).toList(),
                           );
                         }
 
