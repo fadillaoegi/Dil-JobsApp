@@ -5,6 +5,7 @@ import 'package:diljobsapp/widgets/list_detail_widget.dart';
 import 'package:flutter/material.dart';
 
 class Detail extends StatefulWidget {
+  // final JobModel job;
   const Detail({super.key});
 
   @override

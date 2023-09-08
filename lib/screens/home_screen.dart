@@ -15,11 +15,13 @@ import 'package:provider/provider.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
+  // final UserModel user;
+  // const Home(this.user, {super.key});
+
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     var userProvider = Provider.of<UserProvider>(context);
-    // ignore: unused_local_variable
     var categoryProivder = Provider.of<CategoryProvider>(context);
     var jobProvider = Provider.of<JobProvider>(context);
 
@@ -39,8 +41,8 @@ class Home extends StatelessWidget {
                 children: [
                   HeaderText(
                     textOne: 'Haloo,',
-                    textTwo: 'Nabila',
-                    // textTwo: userProvider.user.name,
+                    // textTwo: 'Nabila',
+                    textTwo: userProvider.user.name,
                   ),
                   // Text(userProvider.user.name),
                   Container(
@@ -73,10 +75,7 @@ class Home extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           children: snapshot.data!
                               .map(
-                                (category) => CardCustom(
-                                  image: category.imageUrl,
-                                  text: category.name,
-                                ),
+                                (category) => CardCustom(category),
                               )
                               .toList(),
 
@@ -129,15 +128,12 @@ class Home extends StatelessWidget {
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
                         return Column(
-                          children: snapshot.data!
-                              .map((job) => ListPost(
-                                    image: job.companyLogo,
-                                    title: job.name,
-                                    subtitle: job.companyName,
-                                    place: job.location,
-                                  ))
-                              .toList(),
-                          
+                          children: snapshot.data!.map((job) => ListPost(job
+                              // image: job.companyLogo,
+                              // title: job.name,
+                              // subtitle: job.companyName,
+                              )).toList(),
+
                           // NOTE: STATIS DATA
                           // [
                           //   ListPost(

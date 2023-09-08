@@ -9,12 +9,12 @@ class Favorit extends StatelessWidget {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(24.0),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
+        child: Center(
+          child: Text(
             "FAVORIT SCREEN",
             style: black500.copyWith(fontSize: 30.0),
-          )
-        ]),
+          ),
+        ),
       ),
     );
   }
