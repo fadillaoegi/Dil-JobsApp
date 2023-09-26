@@ -139,7 +139,7 @@ class _DetailState extends State<Detail> {
                   : Center(
                       child: ButtonFill(
                         color: const Color.fromARGB(255, 228, 12, 91),
-                        text: "Apply for Job",
+                        text: "Applied",
                         fontColor: ColordilJobsApp.white,
                         onpress: () {
                           setState(() {
