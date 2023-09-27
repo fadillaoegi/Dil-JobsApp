@@ -1,5 +1,5 @@
 import 'package:diljobsapp/models/job_model.dart';
-import 'package:diljobsapp/routes/routes_diljobapp.dart';
+import 'package:diljobsapp/screens/detail_screen.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,19 @@ class ListPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {Navigator.pushNamed(context, RouteDiljobsapp.detail)},
+      onTap: () => {
+        // NOTE: NAVIGATOR STATIS
+        // Navigator.pushNamed(context, RouteDiljobsapp.detail),
+
+        // NOTE: NAVIGATOR DINAMIS
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Detail(
+                job,
+              ),
+            ))
+      },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -7,7 +7,6 @@ import 'package:diljobsapp/providers/user_provider.dart';
 import 'package:diljobsapp/providers/weight_provider.dart';
 import 'package:diljobsapp/routes/routes_diljobapp.dart';
 import 'package:diljobsapp/screens/cal_ideal_screen.dart';
-import 'package:diljobsapp/screens/detail_screen.dart';
 import 'package:diljobsapp/screens/favorit_screen.dart';
 import 'package:diljobsapp/screens/gender_screen.dart';
 import 'package:diljobsapp/screens/home_screen.dart';
@@ -52,7 +51,7 @@ class MainApp extends StatelessWidget {
           RouteDiljobsapp.signup: (context) => const SignUp(),
           RouteDiljobsapp.genderPicker: (context) => const Gender(),
           RouteDiljobsapp.calIdeal: (context) => const CalIdeal(),
-          RouteDiljobsapp.detail: (context) => const Detail(),
+          // RouteDiljobsapp.detail: (context) => const Detail(),
           RouteDiljobsapp.home: (context) => const Home(),
           RouteDiljobsapp.main: (context) => const Navbar(),
           RouteDiljobsapp.profile: (context) => const Profile(),

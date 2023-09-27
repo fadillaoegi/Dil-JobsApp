@@ -1,3 +1,4 @@
+import 'package:diljobsapp/models/job_model.dart';
 import 'package:diljobsapp/themes/colors.dart';
 import 'package:diljobsapp/themes/font_style.dart';
 import 'package:diljobsapp/widgets/alert_applied_widget.dart';
@@ -6,8 +7,8 @@ import 'package:diljobsapp/widgets/list_detail_widget.dart';
 import 'package:flutter/material.dart';
 
 class Detail extends StatefulWidget {
-  // final JobModel job;
-  const Detail({super.key});
+  final JobModel job;
+  const Detail(this.job, {super.key});
 
   @override
   State<Detail> createState() => _DetailState();
@@ -29,22 +30,27 @@ class _DetailState extends State<Detail> {
               isApplied ? const SizedBox() : const AlertApplied(),
               Center(
                 child: Container(
-                    margin: const EdgeInsets.only(
-                      bottom: 30.0,
-                    ),
-                    width: 60.0,
-                    height: 60.0,
-                    child: Image.asset("assets/images/google-icon.png")),
+                  margin: const EdgeInsets.only(
+                    bottom: 30.0,
+                  ),
+                  width: 60.0,
+                  height: 60.0,
+                  child: Image.network(widget.job.companyLogo),
+                  // NOTE: LOGO ICON STATIS
+                  // child: Image.asset("assets/images/google-icon.png"),
+                ),
               ),
               Center(
                 child: Column(
                   children: [
                     Text(
-                      "Front-End Developer",
+                      // "Front-End Developer",
+                      widget.job.name,
                       style: black500.copyWith(fontSize: 20.0),
                     ),
                     Text(
-                      "Google, Inc • Jakarta",
+                      // "Google, Inc • Jakarta",
+                      widget.job.companyName,
                       style: grey300.copyWith(fontSize: 14.0),
                     )
                   ],
