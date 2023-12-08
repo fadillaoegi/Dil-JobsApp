@@ -21,9 +21,9 @@ class AuthProvider with ChangeNotifier {
           body: body);
 
       // ignore: avoid_print
-      // print(response.statusCode);
+      print(response.statusCode);
       // ignore: avoid_print
-      // print(body);
+      print(body);
 
       if (response.statusCode == 200) {
         return UserModel.fromJson(jsonDecode(response.body));
@@ -38,29 +38,59 @@ class AuthProvider with ChangeNotifier {
   }
 
   // NOTE: AUTH LOGIN
+  // Future<UserModel?> login(String email, String password) async {
+  //   try {
+  //     var body = {
+  //       "email": email,
+  //       "password": password,
+  //     };
+
+  //     var response =
+  //         await http.post(Uri.parse(ApiConfigDilJob.apiAuthLogin), body: body);
+
+  //     // ignore: avoid_print
+  //     print(response.statusCode);
+  //     // ignore: avoid_print
+  //     print(body);
+
+  //     if (response.statusCode == 200) {
+  //       return UserModel.fromJson(jsonDecode(response.body));
+  //     } else {
+  //       return null;
+  //     }
+  //   } catch (e) {
+  //     // ignore: avoid_print
+  //     print("Erorr pada Auth: $e");
+  //     return null;
+  //   }
+  // }
+
   Future<UserModel?> login(String email, String password) async {
     try {
-      var body = {
+      final body = {
         "email": email,
         "password": password,
       };
 
-      var response =
+      final response =
           await http.post(Uri.parse(ApiConfigDilJob.apiAuthLogin), body: body);
 
+      // Print status code for debugging
       // ignore: avoid_print
-      print(response.statusCode);
-      // ignore: avoid_print
-      print(body);
+      print("Status Code: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         return UserModel.fromJson(jsonDecode(response.body));
       } else {
+        // Print error details for debugging
+        // ignore: avoid_print
+        print("Failed to login. Error response: ${response.body}");
         return null;
       }
     } catch (e) {
+      // Print generic error for debugging
       // ignore: avoid_print
-      print("Erorr pada Auth: $e");
+      print("Error during login: $e");
       return null;
     }
   }
