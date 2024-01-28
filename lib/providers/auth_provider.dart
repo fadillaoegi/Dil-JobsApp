@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'dart:convert';
 
 import 'package:diljobsapp/apis/api_config.dart';
@@ -80,6 +82,7 @@ class AuthProvider with ChangeNotifier {
       print("Status Code: ${response.statusCode}");
 
       if (response.statusCode == 200) {
+        print(response.body);
         return UserModel.fromJson(jsonDecode(response.body));
       } else {
         // Print error details for debugging
